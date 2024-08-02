@@ -1,0 +1,19 @@
+#%RAML 1.0
+title: employee-api
+
+/employee:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                  "Dept_No": "0072",
+                  "Emp_NO": 2,
+                  "Emp_Add": "GNoida",
+                  "Emp_Phone": "98565498465",
+                  "Emp_Name": "Suresh",
+                  "Dept_Name": "Sales",
+                  "Salary": "75000"
+                }
