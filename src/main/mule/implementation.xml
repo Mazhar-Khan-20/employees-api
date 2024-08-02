@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<flow name="implementation-get-employee-flow" doc:id="a1276781-8a64-4cb8-aa14-bff960c18485" >
+		<logger level="INFO" doc:name="Logger" doc:id="098c92a6-6e98-4b67-9b86-f3e908518e28" />
+<!-- [STUDIO:"Select"]		<db:select doc:id="e5734b96-6f9c-4512-9f54-27f57a338694" config-ref="Database_Config">
+			<db:sql ><![CDATA[select * from employee]]></db:sql>
+		</db:select> [STUDIO] -->
+		<ee:transform doc:name="Transform Message" doc:id="e9ab325c-7b1e-486d-a723-773abdc54a40" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[{
+	"Dept_No": "3445",
+	"Emp_NO": 1,
+	"Emp_Add": "GNoida",
+	"Emp_Phone": "9855498465",
+	"Emp_Name": "Ramesh",
+	"Dept_Name": "Sales",
+	"Salary": "25000"
+},
+  {
+	"Dept_No": "0072",
+	"Emp_NO": 2,
+	"Emp_Add": "GNoida",
+	"Emp_Phone": "98565498465",
+	"Emp_Name": "Suresh",
+	"Dept_Name": "Sales",
+	"Salary": "75000"
+},
+  {
+	"Dept_No": "2324",
+	"Emp_NO": 3,
+	"Emp_Add": "GNoida",
+	"Emp_Phone": "9855497865",
+	"Emp_Name": "Rajesh",
+	"Dept_Name": "Sales",
+	"Salary": "28000"
+},
+  {
+	"Dept_No": "8883",
+	"Emp_NO": 4,
+	"Emp_Add": "BSB",
+	"Emp_Phone": "9853698465",
+	"Emp_Name": "Shyamu",
+	"Dept_Name": "Sales",
+	"Salary": "35000"
+},
+  {
+	"Dept_No": "74568",
+	"Emp_NO": 5,
+	"Emp_Add": "BSB",
+	"Emp_Phone": "9855498235",
+	"Emp_Name": "Ramu",
+	"Dept_Name": "Sales",
+	"Salary": "96000"
+},
+  {
+	"Dept_No": "1238",
+	"Emp_NO": 6,
+	"Emp_Add": "GNoida",
+	"Emp_Phone": "9851678465",
+	"Emp_Name": "Mahesh",
+	"Dept_Name": "Sales",
+	"Salary": "25000"
+},
+  {
+	"Dept_No": "7634",
+	"Emp_NO": 7,
+	"Emp_Add": "BSBS",
+	"Emp_Phone": "9856723465",
+	"Emp_Name": "Chaman",
+	"Dept_Name": "D10",
+	"Salary": "215000"
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

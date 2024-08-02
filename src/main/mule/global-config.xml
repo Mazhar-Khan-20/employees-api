@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="68840ff2-d6d3-4599-848d-0536b9c749d8"
+		file="employee-api-${env}.yaml"/>
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config"
+		doc:id="8501064b-f50d-484e-b0c2-f29fbc883b17">
+		<http:listener-connection host="0.0.0.0" port="${http.port}"/>
+	</http:listener-config>
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="700c4614-6b80-41f5-a453-d47f45b1ce31">
+		<db:my-sql-connection host="localhost" port="3306" user="root" password="Asma@123" database="employee_data"/>
+	</db:config>
+	<api-gateway:autodiscovery apiId="${app.id}" ignoreBasePath="true" doc:name="API Autodiscovery"
+		doc:id="686facaa-b7e4-4c62-afae-3ffd7fe83491" flowRef="employee-api-main"/>
+</mule>
