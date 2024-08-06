@@ -26,12 +26,6 @@
 						<version>${mule.maven.plugin.version}</version>
 						<extensions>true</extensions>
 						<configuration>
-							<sharedLibraries>
-								<sharedLibrary>
-									<groupId>com.mysql</groupId>
-									<artifactId>mysql-connector-j</artifactId>
-								</sharedLibrary>
-							</sharedLibraries>
 							<cloudHubDeployment>
 								<applicationName>employee-dev-api</applicationName>
 								<environment>Dev</environment>
@@ -61,12 +55,6 @@
 						<version>${mule.maven.plugin.version}</version>
 						<extensions>true</extensions>
 						<configuration>
-							<sharedLibraries>
-								<sharedLibrary>
-									<groupId>com.mysql</groupId>
-									<artifactId>mysql-connector-j</artifactId>
-								</sharedLibrary>
-							</sharedLibraries>
 							<cloudHubDeployment>
 								<applicationName>employee-test-api</applicationName>
 								<environment>test</environment>
@@ -76,8 +64,8 @@
 								<properties>
 									<env>test</env>
 									<app.id>19784886</app.id>
-									<anypoint.platform.client_id>38b8977e2d3d4af6a90a08035cd8dd18</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>c96430AE0698486f9F010aA6e0447669</anypoint.platform.client_secret>
+									<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
@@ -108,8 +96,8 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.4.0</muleVersion>
-						<username>MazharKhanB20</username>
-						<password>Asma@123</password>
+						<username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
 							<http.port>8084</http.port>
