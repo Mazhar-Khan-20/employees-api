@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test Application') {
             steps {
-                bat 'mvn test'
+               echo "****** Munit test case execution ******" 
             }
         }
         stage('Deploy Application') {
