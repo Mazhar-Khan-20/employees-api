@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="implementation-test-suite.xml" />
+	<munit:test name="implementation-test-suite-implementation-get-employee-flowTest" doc:id="7c4d7c59-e384-471d-98f8-0820e8a23313" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to implementation-get-employee-flow" doc:id="4f4a21c0-faee-432a-a279-5d2bf73232f9" name="implementation-get-employee-flow"/>
+		</munit:execution>
+		<munit:validation >
+			<logger level="INFO" doc:name="Logger" doc:id="b11e947e-1c92-4336-bc30-6776f629e166" message="Successfully executed Munit"/>
+			<munit-tools:assert doc:name="Assert expression" doc:id="b4b96b35-3fd4-4732-9cb2-5807066c39a4" />
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
